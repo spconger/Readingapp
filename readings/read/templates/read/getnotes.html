@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Book Notes</h2>
+
+<table class='table'>
+    
+    <tr>
+        <th>Book</th>
+        <th>Date</th>
+        <th>Note</th>
+        
+
+    </tr>
+    {% for BookNote in notes_list %}
+    <tr>
+        <td>{{ BookNote.book }}</a></td>
+        <td>{{ BookNote.notedate }}</td>
+        <td>{{ BookNote.notetext }}</td>
+       
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

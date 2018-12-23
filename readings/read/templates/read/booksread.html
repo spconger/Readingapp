@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h2>Reading Activity</h2>
+    
+    <table class='table'>
+        
+        <tr>
+            <th>Book</th>
+            <th>Date Started</th>
+            <th>Date Finished</th>
+            <th>Reread?</th>
+
+            
+    
+        </tr>
+        {% for BooksRead in read_list %}
+        <tr>
+            <td>{{ BooksRead.book }}</a></td>
+            <td>{{ BooksRead.datestarted }}</td>
+            <td>{{ BooksRead.dateended }}</td>
+            <td>{{ BooksRead.reread }}</td>
+           
+        </tr>
+        {% endfor %}
+    </table>
+    {% endblock %}
+
