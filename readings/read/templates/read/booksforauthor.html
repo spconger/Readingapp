@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Books</h2>
+
+{% for book in book_list %}
+  <h3>{{ book.title }}</h3>
+  <p>{{ book.description }}</p>
+  {% for g in book.genre.all %}
+    <p>{{ g.genrename }} <br/></p>
+  {% endfor %}
+
+{% endfor %}
+
+{% endblock %}

@@ -9,5 +9,10 @@ urlpatterns = [
    path('getbooksread/', views.getbooksread, name='booksread'),
    path('bookdetail/<int:id>', views.bookdetail, name='bookdetail'),
    path('booksforauthor/<int:id>', views.booksforauthor, name='booksforauthor'),
+   path('addBook/', views.addBook, name='addbook'),
+   path('addAuthor/', views.addAuthor, name='addauthor'),
+   path('newNotes/', views.newNote, name='newnote'),
+   path('addGenre/', views.addGenre, name='addgenre'),
+   path('addReading/', views.addReading, name='addreading'),
    
 ]

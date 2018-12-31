@@ -5,7 +5,7 @@
 <ul class="group-list">
      
     {% for Author in author_list %}
-       <li class="list-group-item">{{ Author.authorname }}
+       <li class="list-group-item"><a href="{% url 'booksforauthor' id=Author.id %}">{{ Author.authorname }}</a></li>
     {% endfor %}
 
 </ul>
