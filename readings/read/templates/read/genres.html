@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Genres</h2>
+
+<ul class='group-list'>
+
+    {% for genre in genre_list %}
+    <li class='list-group-item'><a href="{% url 'booksforgenre' id=genre.id %}">{{ genre.genrename  }}</a></li>
+    
+    {% endfor %}
+</ul>
+{% endblock %}

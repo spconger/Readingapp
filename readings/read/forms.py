@@ -25,3 +25,6 @@ class GenreForm(forms.ModelForm):
     class Meta:
         model=Genre
         fields='__all__'
+
+class FinishReadingForm(forms.Form):
+    finish_date=forms.DateField(help_text='Enter the date you finished reading')

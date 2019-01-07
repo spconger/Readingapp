@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Book, Author, BookNotes, BooksRead
+from .models import Book, Author, BookNotes, BooksRead, Genre
 from django.http import HttpResponse
 from django.urls import reverse_lazy
-from .forms import BookForm, AuthorForm, NotesForm, BookReadForm, GenreForm
+from .forms import BookForm, AuthorForm, NotesForm, BookReadForm, GenreForm, FinishReadingForm
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 def index(request):
@@ -45,7 +47,15 @@ def getbooksread(request):
     read_list=BooksRead.objects.all()
     return render(request, 'read/booksread.html', {'read_list' : read_list})
 
-#Form views
+def getgenres(request):
+    genre_list=Genre.objects.all()
+    return render(request,'read/genres.html', {'genre_list' : genre_list})
+
+def booksforgenre(request, id):
+    book_list=Book.objects.filter(genre=id)
+    return render(request, 'read/booksforgenre.html', {'book_list': book_list})
+
+#Form views.
 def addBook(request):
     form=BookForm
 
@@ -64,7 +74,7 @@ def addAuthor(request):
     form=BookForm
 
     if request.method=='POST':
-        form=AuthoForm(request.POST)
+        form=AuthorForm(request.POST)
         if form.is_valid():
             
             post=form.save(commit=True)
@@ -117,10 +127,44 @@ def addGenre(request):
     return render(request, 'read/addgenre.html', {'form': form})
 
 
+def finishBook(request, pk):
+    form=FinishReadingForm()
+    book_instance = get_object_or_404(BooksRead, pk=pk)
+
+  
+    if request.method == 'POST':
+
+        
+        form = FinishReadingForm(request.POST)
+
+       
+        if form.is_valid():
+            
+            book_instance.dateended= form.cleaned_data['finish_date']
+            book_instance.save()
+            form=BookReadForm()
+            
+            #return HttpResponseRedirect(reverse('getbooksread') )
+
+        else:
+            form=FinishReadingForm()
+    
+
+    context = {
+        'form': form,
+        'book_instance': book_instance,
+    }
+
+    return render(request, 'read/finishbook.html', context)
+
 #to do
-#finish and when clicking on an author get books
+#finish and when clicking on an author get books--done
 #more measures of books read and by month and year
 #add paging and other touches
-#create forms for each model table
+#create forms for each model table--done
 #spruce up the appearance some
 #create test for the views models and forms
+#add genres and from genres list books for that genre --done
+#and then add links to the books from the genre list--done
+#also maybe add thumbnail pictures of the books
+#modify the css some

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ book_instance.book }}</h2>
+<p>{{ book_instance.datestarted }}</p>
+<table class="table">
+    <form method="POST" class="post-form">{% csrf_token %}
+      {{ form.as_table }}
+    
+</table>
+<button type="submit" class="save btn btn-default">Save</button>
+</form>
+
+{% endblock %}

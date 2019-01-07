@@ -2,6 +2,7 @@
 {% block content %}
 
     <h2>Reading Activity</h2>
+    <p>Click on the title to enter finish date</p>
     
     <table class='table'>
         
@@ -16,7 +17,7 @@
         </tr>
         {% for BooksRead in read_list %}
         <tr>
-            <td>{{ BooksRead.book }}</a></td>
+            <td><a href="{% url 'finishbook' pk=BooksRead.id %}">{{ BooksRead.book }}</a></td>
             <td>{{ BooksRead.datestarted }}</td>
             <td>{{ BooksRead.dateended }}</td>
             <td>{{ BooksRead.reread }}</td>

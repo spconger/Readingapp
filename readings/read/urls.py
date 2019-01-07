@@ -14,5 +14,8 @@ urlpatterns = [
    path('newNotes/', views.newNote, name='newnote'),
    path('addGenre/', views.addGenre, name='addgenre'),
    path('addReading/', views.addReading, name='addreading'),
+   path('finishBook/<int:pk>', views.finishBook, name='finishbook'),
+   path('getgenres/', views.getgenres, name='genres'),
+   path ('booksforgenre/<int:id>', views.booksforgenre, name='booksforgenre'),
    
 ]
