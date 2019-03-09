@@ -39,6 +39,7 @@ class BooksRead(models.Model):
     datestarted = models.DateField()
     dateended = models.DateField(null=True, blank=True)
     reread=models.CharField(max_length=3)
+    quitdate=models.DateField(null=True, blank=True)
 
     def __str__(self):
         return str(self.datestarted)

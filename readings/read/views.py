@@ -11,13 +11,15 @@ def index(request):
     bookcount=Book.objects.all().count()
     authorcount=Author.objects.all().count()
     notecount=BookNotes.objects.all().count()
-    readcount=BooksRead.objects.exclude(dateended__isnull=True).count()
+    readcount=BooksRead.objects.filter(dateended__isnull=False).count()
+    currentcount=BooksRead.objects.filter(dateended__isnull=True, quitdate__isnull=True).count()
 
     context={
         'bookcount': bookcount,
         'authorcount' : authorcount,
         'notecount' : notecount,
         'readcount' : readcount,
+        'currentcount' : currentcount,
     }
     return render(request, 'read/index.html', context=context)
 
