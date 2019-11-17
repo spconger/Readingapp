@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
 
+<img src="{% static 'books.jpg' %}" alt="books" class="rounded float-left">
 
-
-<table class="table" >
+<table class="table" style="width:60%; float:right">
     <tr>
         <td><strong>Reading</strong></td><td> This web site is devoted to tracking all the books <br/>
             read over the course of the year.<br/>

@@ -24,16 +24,16 @@ def index(request):
     return render(request, 'read/index.html', context=context)
 
 def getbooks (request):
-    book_list=Book.objects.all()
+    book_list=Book.objects.all().order_by('title')
     return render(request, 'read/getbooks.html', {'book_list' : book_list })
 
 def bookdetail(request, id):
     book=get_object_or_404(Book, pk=id)
-    return render(request, 'read/bookdetail.html', {'book' : book})
+    return render('', 'read/bookdetail.html', {'book' : book})
 
 
 def getauthors(request):
-    author_list=Author.objects.all()
+    author_list=Author.objects.all().order_by('authorname')
     return render(request,'read/getauthors.html', {'author_list' : author_list})
 
 def booksforauthor(request, id):
