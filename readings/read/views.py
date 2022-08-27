@@ -55,7 +55,7 @@ def getbooksread(request):
     return render(request, 'read/booksread.html', {'read_list' : read_list})
 
 def getgenres(request):
-    genre_list=Genre.objects.all()
+    genre_list=Genre.objects.all().order_by('genrename')
     return render(request,'read/genres.html', {'genre_list' : genre_list})
 
 def booksforgenre(request, id):
