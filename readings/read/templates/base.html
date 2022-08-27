@@ -10,16 +10,75 @@
        
     </head>
     <body>
-        <div class='jumbotron' style="background-color: Navy; color: white;">
+        <!--div class='jumbotron' style="background-color: Navy; color: white;">
             <h1>Reading</h1>
-        </div>
-        <nav class="navbar navbar-default">
+        </div-->
+        <!--
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">reading</a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Authors
+                  <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url 'getauthors' %}">View authors</a></li>
+                    <li><a href="{% url 'addauthor' %}">Add author</a></li>
+                
+                  </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Books
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="{% url 'getbooks' %}">view books</a></li>
+                      <li><a href="{% url 'addbook' %}">Add books</a></li>
+                     
+                    </ul>
+                    <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">genre
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="genres.html">View genres</a></li>
+                      <li><a href="addgenre.html">Add genres</a></li>
+                    </li>
+                    </ul>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Readings
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="booksread.html">View readings</a></li>
+                          <li><a href="addbookread.html">Add readings</a></li>
+                        </li>
+                        </ul>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Notes
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="getnotes.html">View Notes</a></li>
+                              <li><a href="newnote.html">Add Note</a></li>
+                            </li>
+                            </ul>
+                  </li>
+                 
+              </ul>
+            </div>
+          </nav>
+        -->
+        <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
                 <div class="navbar-header">
                 <a class="navbar-brand" href="{% url 'index' %}">Reading</a>
                 </div>
+
+
+
                 <ul class="nav navbar-nav">
-                    <li><a href="{% url 'getbooks' %}">Books</a></li>
+                    <li class="'dropdown"><a href="{% url 'getbooks' %}">Books</a></li>
+                    
                     <li><a href="{% url 'getauthors' %}">Authors</a></li>
                     <li><a href="{% url 'getnotes' %}">Notes</a></li>
                     <li><a href="{% url 'genres' %}">Genres</a></li>

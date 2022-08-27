@@ -1,17 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>{{ book.title }}</h2>
+<h2>{{ books.title }}</h2>
 <p>Author(s):
-{% for Author in book.author.all %}
+{% for Author in books.author.all %}
    {{ Author.authorname }}<br/>
 {% endfor %}
 </p>
 <p>Genre:
-    {% for Genre in book.genre.all %}
+    {% for Genre in books.genre.all %}
         {{ Genre.genrename }} <br/>
     {% endfor %}
 </p>
-    <p>{{ book.description }}</p>
-   
+    <p>{{ books.description }}</p>
+    <p>pages: {{books.pages}}</p>
+
+
+    {% for n in note %}
+        <hr/>
+        <p><strong>{{n.notetitle}}</strong></p>
+        <p>{{n.notedate}}</p>
+        <p>{{n.notetext}}</p>
+    {% endfor %}
+
 
 {% endblock %}

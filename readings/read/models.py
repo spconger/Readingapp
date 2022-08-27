@@ -25,6 +25,7 @@ class Book (models.Model):
     title = models.CharField(max_length=255)
     author = models.ManyToManyField(Author)
     genre=models.ManyToManyField(Genre)
+    pages=models.IntegerField(null=True, blank=True)
     description=models.TextField(null=True, blank=True)
 
     def __str__(self):

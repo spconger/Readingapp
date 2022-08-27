@@ -28,8 +28,13 @@ def getbooks (request):
     return render(request, 'read/getbooks.html', {'book_list' : book_list })
 
 def bookdetail(request, id):
-    book=get_object_or_404(Book, pk=id)
-    return render('', 'read/bookdetail.html', {'book' : book})
+    books=get_object_or_404(Book, pk=id)
+    note=BookNotes.objects.filter(book=books.id).all()
+    context={
+        'books' : books,
+        'note' : note,
+    }
+    return render(request, 'read/bookdetail.html', context=context)
 
 
 def getauthors(request):
@@ -144,7 +149,7 @@ def finishBook(request, pk):
             
             book_instance.dateended= form.cleaned_data['finish_date']
             book_instance.save()
-            form=BookReadForm()
+            form=FinishReadingForm()
             
             #return HttpResponseRedirect(reverse('getbooksread') )
 
